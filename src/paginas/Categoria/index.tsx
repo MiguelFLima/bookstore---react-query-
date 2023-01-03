@@ -1,42 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
+import ListaLivros from '../../componentes/ListaLivros';
 import Loader from '../../componentes/Loader';
 import TituloPrincipal from '../../componentes/TituloPrincipal';
-import http from '../../http';
-import { ICategoria } from '../../interfaces/ICategoria';
+import { obterCategoriaPorSlug } from '../../http';
 
 const Categoria = () => {
-  const [categoria, setCategoria] = useState<ICategoria>();
-  const [loader, setLoader] = useState<boolean>(false);
-
   const params = useParams();
 
-  // como direcionar para uma rota dinamica
-  useEffect(() => {
-    setLoader(true);
-    http
-      .get<ICategoria[]>('categorias', {
-        params: {
-          slug: params.slug,
-        },
-      })
-      .then((res) => {
-        setCategoria(res.data[0]);
-        setLoader(false);
-      })
-      .catch((erro) => {
-        console.log(erro);
-        setLoader(false);
-      });
-  }, [params.slug]);
+  const { data: categoria, isLoading } = useQuery(
+    ['categoriaPorSlug', params.slug],
+    () => obterCategoriaPorSlug(params.slug || '')
+  );
 
-  if (loader) {
+  if (isLoading) {
     return <Loader />;
   }
 
   return (
     <section>
       <TituloPrincipal titulo={categoria?.nome ?? ''} />
+      <ListaLivros categoria={categoria!} />
     </section>
   );
 };

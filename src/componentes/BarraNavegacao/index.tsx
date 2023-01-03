@@ -17,7 +17,6 @@ const BarraNavegacao = () => {
 
   useEffect(() => {
     http.get<ICategoria[]>('categorias').then((res) => {
-      console.log(res.data);
       setCategorias(res.data);
     });
   }, []);

@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import Livro from '../componentes/Livro';
 import AreaLogada from '../paginas/AreaLogada';
 import Categoria from '../paginas/Categoria';
 import Home from '../paginas/Home';
@@ -14,6 +15,7 @@ const Rotas = () => {
           <Route path="pedidos" element={<Pedidos />} />
         </Route>
         <Route path="/categorias/:slug" element={<Categoria />} />
+        <Route path="/livro/:slug" element={<Livro />} />
       </Route>
     </Routes>
   );

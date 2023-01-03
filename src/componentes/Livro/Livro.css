@@ -1,0 +1,94 @@
+.container {
+  width: 100%;
+  margin: 5% auto;
+}
+
+.container__Imagem--uau {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
+.livro__imagem {
+  width: 450px;
+  height: 642px;
+  object-fit: contain;
+}
+
+.livro__titulo {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+.livro__descricao {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.autor__nome {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.formatos {
+  color: #002f52;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.opcoes {
+  display: flex;
+}
+
+.lembrete {
+  color: gray;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.input__qnt {
+  display: flex;
+  width: 112px;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.divp {
+  width: 80%;
+  margin: 4% auto;
+}
+
+.autor__sobre {
+  color: #002f52;
+  height: 30px;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: left;
+  margin-left: 1%;
+}
+
+.autor__conteudo {
+  color: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  height: auto;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  text-align: center;
+  text-align: left;
+}
+
+.borda {
+  border: 3px solid orange;
+  width: 100%;
+  text-align: left;
+}
